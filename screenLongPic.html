@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html2canvas example</title>
+    <script type="text/javascript" src="http://api4-dev.ninebot.cn/Public/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://api4-dev.ninebot.cn/Public/js/html2canvas.min.js"></script>
+    <script type="text/javascript" src="http://api4-dev.ninebot.cn/Public/js/canvas2image.js"></script>
+    <script type="text/javascript" src="http://api4-dev.ninebot.cn/Public/winter_act/js/WebViewJavascriptBridge_JS.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html {
+        font-size: 100px;
+        overflow: hidden;
+        height: 100%;
+    }
+    body {
+        /* overflow: hidden; */
+        height: 100%;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+    }
+    li {
+        list-style: none;
+    }
+    .pic-top {
+        background-image: url("./fenxiang@2x.png");
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .pic-top img {
+        padding: .10rem 0;
+        margin: 0 auto;
+        display: block;
+    }
+    .pic-top .top-text {
+        font-size: .16rem;
+        padding: .10rem;
+        color: #ffffff;
+        line-height: .20rem;
+    }
+    .pic-top .top-icon ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .10rem;
+    }
+    .pic-top .top-icon ul li {
+        font-size: .12rem;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        align-items: center;
+    }
+    .pic-middle {
+        width: 100%;
+        height: 3rem;
+        background: linear-gradient(165deg,#eac788,#9e6f33);
+        padding: .10rem;
+        margin: .10rem 0;
+        position: relative;
+    }
+    .pic-middle .middle-img {
+        width: 100%;
+        height: .40rem;
+        position: absolute;
+        top: .10rem;
+        left: 0;
+    }
+    .pic-middle .middle-text {
+        font-size: .16rem;
+        color: #fff;
+        line-height: .20rem;
+        margin: .50rem 0 0;
+        text-indent: 2em;
+    }
+    .pic-middle .middle-icon ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .10rem;
+    }
+    .pic-middle .middle-icon ul li {
+        font-size: .12rem;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        align-items: center;
+    }
+    .submit {
+        width: 100%;
+        height: .40rem;
+        background: #eac788;
+        text-align: center;
+        line-height: .40rem;
+        color: #fff;
+        font-size: .14rem;
+        box-shadow:0px 1px 2px 0px rgba(0,0,0,0.05),0px -1px 2px 0px rgba(0,0,0,0.05);
+        margin: .30rem 0 .30rem;
+    }
+</style>
+<body>
+<div id="LongPic">
+    <div id="screenBox">
+        <div class="pic-top">
+            <img src="./qrcode.png" alt="" width="100" height="100">
+            <div class="top-text">在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后</div>
+            <div class="top-text">在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后</div>
+            <div class="top-text">在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后在APP绑定成为该型号产品车主后</div>
+            <div class="top-icon">
+                <ul>
+                    <li>
+                        <img src="./checkbox.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./checked.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./checked2.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./ckeckbox1.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./ckeckbox1.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pic-middle">
+            <img class="middle-img" src="./biaoti@2x.png" alt="">
+            <div class="middle-text">
+                <span>发布过5篇点赞量超过100的原创图片动态，并被管理员设置为精华发布过5篇点赞量超过100的原创图片动态，并被管理员设置为精华发布过5篇点赞量超过100的原创图片动态，并被管理员设置为精华</span>
+            </div>
+            <div class="middle-icon">
+                <ul>
+                    <li>
+                        <img src="./checkbox.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./checked.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./checked2.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./ckeckbox1.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                    <li>
+                        <img src="./ckeckbox1.png" alt="">
+                        <span>top-icon</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="submit" id="share" >点击截图</div>
+</div>
+<!--<div id="view" style="width: 100%; height: 100%;">
+    <img src="/Public/images/longtest.jpg"  style="width: 100%;">
+    <div id="share">截图</div >
+</div>-->
+<script type="text/javascript">
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) {
+            return callback(WebViewJavascriptBridge);
+        }
+        if (window.WVJBCallbacks) {
+            return window.WVJBCallbacks.push(callback);
+        }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+    $("#share").click(function(){
+        var cntElem = document.getElementById("screenBox");
+        var shareContent = cntElem;//需要截图的包裹的（原生的）DOM 对象
+        var width = shareContent.offsetWidth; //获取dom 宽度
+        var height = shareContent.offsetHeight; //获取dom 高度
+        var canvas = document.createElement("canvas"); //创建一个canvas节点
+        var scale = 2; //定义任意放大倍数 支持小数
+        canvas.width = width * scale; //定义canvas 宽度 * 缩放
+        canvas.height = height * scale; //定义canvas高度 *缩放
+        canvas.getContext("2d").scale(scale, scale); //获取context,设置scale
+        var opts = {
+            scale: scale, // 添加的scale 参数
+            canvas: canvas, //自定义 canvas
+            // logging: true, //日志开关，便于查看html2canvas的内部执行流程
+            width: width, //dom 原始宽度
+            height: height,
+            useCORS: true // 【重要】开启跨域配置
+        };
+        html2canvas(shareContent, opts).then(function (canvas) {
+            var context = canvas.getContext('2d');
+            // 【重要】关闭抗锯齿
+            context.mozImageSmoothingEnabled = false;
+            context.webkitImageSmoothingEnabled = false;
+            context.msImageSmoothingEnabled = false;
+            context.imageSmoothingEnabled = false;
+            // 【重要】默认转化的格式为png,也可设置为其他格式
+            var img = Canvas2Image.convertToJPEG(canvas, canvas.width, canvas.height);
+            var $a = $("<a></a>").attr("href", img.src).attr("download", "img.png");
+            $a[0].click();
+
+            setupWebViewJavascriptBridge(function(bridge) {
+                console.log(img.src);
+                bridge.registerHandler('sendImgBase64', function(data, responseCallback) {
+                    // console.log("JS Echo called with:", data)
+                    $('.share_btn').show()
+                    responseCallback(data)
+                })
+                bridge.callHandler('sendImgBase64', {"imgSrc": img.src,}, function(response) {
+                })
+            })
+        })
+    })
+
+</script>
+</body>
+</html>
